@@ -30,17 +30,18 @@ namespace Controladora
             }
         }
 
+        //agrego el laboratorio, busco el laboratorio por nombre y por id, si no lo encuentro, lo agrego y guardo los cambios en la base de datos, la capacidad maxima del laboratorio la ingresa el usuario en un numeric up and down
         public string AgregarLaboratorio(Laboratorio laboratorio)
         {
             try
             {
                 var listaLaboratorios = context.Laboratorios.ToList().AsReadOnly();
-                var laboratorioEncontrado = listaLaboratorios.FirstOrDefault(l => l.NombreLaboratorio.ToLower() == laboratorio.NombreLaboratorio.ToLower()); //busco el laboratorio por nombre en la lista de laboratorios para evitar que se repitan
-                if (laboratorioEncontrado == null) //si no se encuentra el laboratorio, lo agrego
+                var laboratorioEncontrado = listaLaboratorios.FirstOrDefault(l => l.LaboratorioId == laboratorio.LaboratorioId && l.NombreLaboratorio.ToLower() == laboratorio.NombreLaboratorio.ToLower());
+                if (laboratorioEncontrado == null)
                 {
                     context.Laboratorios.Add(laboratorio);
-                    int insertados = context.SaveChanges(); //guardo los cambios
-                    if (insertados > 0) //insertados es la cantidad de registros afectados
+                    int insertados = context.SaveChanges();
+                    if (insertados > 0)
                     {
                         return $"El laboratorio se agregó correctamente";
                     }
@@ -59,7 +60,8 @@ namespace Controladora
         {
             try
             {
-                var laboratorioEncontrado = context.Laboratorios.FirstOrDefault(l => l.LaboratorioId == laboratorio.LaboratorioId && l.NombreLaboratorio.ToLower() == laboratorio.NombreLaboratorio.ToLower());
+                var listaLaboratorios = context.Laboratorios.ToList().AsReadOnly();
+                var laboratorioEncontrado = listaLaboratorios.FirstOrDefault(l => l.LaboratorioId == laboratorio.LaboratorioId && l.NombreLaboratorio.ToLower() == laboratorio.NombreLaboratorio.ToLower());
                 if (laboratorioEncontrado != null)
                 {
                     laboratorioEncontrado.CapacidadMaxima = laboratorio.CapacidadMaxima;
@@ -84,7 +86,8 @@ namespace Controladora
         {
             try
             {
-                var laboratorioEncontrado = context.Laboratorios.FirstOrDefault(l => l.LaboratorioId == laboratorio.LaboratorioId && l.NombreLaboratorio.ToLower() == laboratorio.NombreLaboratorio.ToLower());
+                var listaLaboratorios = context.Laboratorios.ToList().AsReadOnly();
+                var laboratorioEncontrado = listaLaboratorios.FirstOrDefault(l => l.LaboratorioId == laboratorio.LaboratorioId && l.NombreLaboratorio.ToLower() == laboratorio.NombreLaboratorio.ToLower());
                 if (laboratorioEncontrado != null)
                 {
                     context.Laboratorios.Remove(laboratorioEncontrado);
@@ -109,7 +112,8 @@ namespace Controladora
         {
             try
             {
-                var laboratorioEncontrado = context.Laboratorios.FirstOrDefault(l => l.LaboratorioId == laboratorio.LaboratorioId && l.NombreLaboratorio.ToLower() == laboratorio.NombreLaboratorio.ToLower());
+                var listaLaboratorios = context.Laboratorios.ToList().AsReadOnly();
+                var laboratorioEncontrado = listaLaboratorios.FirstOrDefault(l => l.LaboratorioId == laboratorio.LaboratorioId && l.NombreLaboratorio.ToLower() == laboratorio.NombreLaboratorio.ToLower());
                 if (laboratorioEncontrado != null)
                 {
                     return $"Laboratorio encontrado: {laboratorioEncontrado.NombreLaboratorio}";
