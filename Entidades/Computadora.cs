@@ -26,8 +26,6 @@ namespace Entidades
         public Ticket Ticket { get; set; } //una computadora tiene un ticket
         public EstadoComputadora estado { get; set; }
         public CondicionComputadora condicion { get; set; }
-        
-
 
     }
 }

@@ -38,6 +38,8 @@
             btnCerrar = new Button();
             btnMinimizar = new Button();
             lblAgregaroModificar = new Label();
+            label4 = new Label();
+            comboBox1 = new ComboBox();
             SuspendLayout();
             // 
             // label2
@@ -54,7 +56,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(21, 100);
+            label1.Location = new Point(12, 100);
             label1.Name = "label1";
             label1.Size = new Size(111, 20);
             label1.TabIndex = 9;
@@ -64,7 +66,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(21, 150);
+            label3.Location = new Point(12, 150);
             label3.Name = "label3";
             label3.Size = new Size(121, 20);
             label3.TabIndex = 10;
@@ -87,7 +89,7 @@
             // btnAgregar
             // 
             btnAgregar.FlatStyle = FlatStyle.Flat;
-            btnAgregar.Location = new Point(84, 214);
+            btnAgregar.Location = new Point(84, 251);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(89, 30);
             btnAgregar.TabIndex = 13;
@@ -98,7 +100,7 @@
             // btnCancelar
             // 
             btnCancelar.FlatStyle = FlatStyle.Flat;
-            btnCancelar.Location = new Point(189, 214);
+            btnCancelar.Location = new Point(189, 251);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(89, 30);
             btnCancelar.TabIndex = 14;
@@ -129,17 +131,37 @@
             // lblAgregaroModificar
             // 
             lblAgregaroModificar.AutoSize = true;
-            lblAgregaroModificar.Location = new Point(102, 42);
+            lblAgregaroModificar.Location = new Point(132, 45);
             lblAgregaroModificar.Name = "lblAgregaroModificar";
             lblAgregaroModificar.Size = new Size(146, 15);
             lblAgregaroModificar.TabIndex = 19;
             lblAgregaroModificar.Text = "Agregar o Modificar Sedes";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(12, 202);
+            label4.Name = "label4";
+            label4.Size = new Size(155, 20);
+            label4.TabIndex = 20;
+            label4.Text = "Agregar Laboratorio:";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(173, 199);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(179, 23);
+            comboBox1.TabIndex = 21;
+            // 
             // frmSedeAM
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(378, 275);
+            ClientSize = new Size(378, 309);
+            Controls.Add(comboBox1);
+            Controls.Add(label4);
             Controls.Add(lblAgregaroModificar);
             Controls.Add(btnCerrar);
             Controls.Add(btnMinimizar);
@@ -171,5 +193,7 @@
         private Button btnCerrar;
         private Button btnMinimizar;
         private Label lblAgregaroModificar;
+        private Label label4;
+        private ComboBox comboBox1;
     }
 }

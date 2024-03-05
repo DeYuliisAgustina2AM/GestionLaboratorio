@@ -32,7 +32,6 @@
             dgvLaboratorio = new DataGridView();
             txtBuscarLaboratorioId = new TextBox();
             btnBuscarLaboratorio = new Button();
-            btnListarLaboratorio = new Button();
             btnEliminar = new Button();
             btnModificar = new Button();
             btnAgregar = new Button();
@@ -80,16 +79,6 @@
             btnBuscarLaboratorio.Text = "Buscar por Id";
             btnBuscarLaboratorio.UseVisualStyleBackColor = true;
             // 
-            // btnListarLaboratorio
-            // 
-            btnListarLaboratorio.FlatStyle = FlatStyle.Flat;
-            btnListarLaboratorio.Location = new Point(321, 88);
-            btnListarLaboratorio.Name = "btnListarLaboratorio";
-            btnListarLaboratorio.Size = new Size(89, 30);
-            btnListarLaboratorio.TabIndex = 19;
-            btnListarLaboratorio.Text = "Listar";
-            btnListarLaboratorio.UseVisualStyleBackColor = true;
-            // 
             // btnEliminar
             // 
             btnEliminar.FlatStyle = FlatStyle.Flat;
@@ -109,6 +98,7 @@
             btnModificar.TabIndex = 17;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnAgregar
             // 
@@ -119,6 +109,7 @@
             btnAgregar.TabIndex = 16;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // btnCerrar
             // 
@@ -142,7 +133,7 @@
             btnMinimizar.UseVisualStyleBackColor = true;
             btnMinimizar.Click += btnMinimizar_Click;
             // 
-            // frmLaboratorio
+            // frmLaboratorioDGV
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -151,14 +142,13 @@
             Controls.Add(btnMinimizar);
             Controls.Add(txtBuscarLaboratorioId);
             Controls.Add(btnBuscarLaboratorio);
-            Controls.Add(btnListarLaboratorio);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
             Controls.Add(dgvLaboratorio);
             Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "frmLaboratorio";
+            Name = "frmLaboratorioDGV";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmLaboratorio";
             ((System.ComponentModel.ISupportInitialize)dgvLaboratorio).EndInit();
@@ -172,7 +162,6 @@
         private DataGridView dgvLaboratorio;
         private TextBox txtBuscarLaboratorioId;
         private Button btnBuscarLaboratorio;
-        private Button btnListarLaboratorio;
         private Button btnEliminar;
         private Button btnModificar;
         private Button btnAgregar;

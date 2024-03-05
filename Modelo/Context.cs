@@ -28,7 +28,7 @@ namespace Modelo
             //Una sede tiene de 0 a muchos laboratorios
             modelBuilder.Entity<Sede>()
                 .HasMany(s => s.Laboratorios)
-                .WithOne(l => l.sede)
+                .WithOne(l => l.Sede)
                 .HasForeignKey(l => l.SedeId);
 
             //Un laboratorio tiene de 0 a muchas computadoras

@@ -1,6 +1,6 @@
 ﻿namespace VISTA
 {
-    partial class Computadora
+    partial class frmComputadora
     {
         /// <summary>
         /// Required designer variable.
@@ -142,7 +142,7 @@
             label2.TabIndex = 24;
             label2.Text = "Gestionar Computadoras";
             // 
-            // Computadora
+            // frmComputadora
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -158,7 +158,7 @@
             Controls.Add(dgvComputadora);
             Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Computadora";
+            Name = "frmComputadora";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Computadora";
             ((System.ComponentModel.ISupportInitialize)dgvComputadora).EndInit();

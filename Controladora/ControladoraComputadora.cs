@@ -30,7 +30,7 @@ namespace Controladora
             }
         }
 
-        public ReadOnlyCollection<Computadora> RecuperarTodas()
+        public ReadOnlyCollection<Computadora> RecuperarComputadoras()
         {
             try
             {

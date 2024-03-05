@@ -149,5 +149,33 @@ namespace Controladora
             }
         }
 
+        //agregar un laboratorio a una sede existente y guardar los cambios
+        public string AgregarLaboratorioALaSede(Sede sede, Laboratorio laboratorio)
+        {
+            try
+            {
+                var listaSedes = context.Sedes.ToList().AsReadOnly();
+                var sedeEncontrada = listaSedes.FirstOrDefault(s => s.NombreSede.ToLower() == sede.NombreSede.ToLower() || s.SedeId == sede.SedeId);
+                if (sedeEncontrada != null)
+                {
+                    sedeEncontrada.Laboratorios.Add(laboratorio); //agrego el laboratorio a la lista de laboratorios de la sede
+                    int insertados = context.SaveChanges();
+                    if (insertados > 0)
+                    {
+                        return $"El laboratorio se ha agregado a la sede {sedeEncontrada.NombreSede}";
+                    }
+                    else return $"El laboratorio no se ha podido agregar a la sede {sedeEncontrada.NombreSede}";
+                }
+                else
+                {
+                    return $"La sede no existe";
+                }
+            }
+            catch (Exception)
+            {
+                return "Error desconocido";
+            }
+        }
+
     }
 }

@@ -2,6 +2,7 @@
 using Modelo;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,18 @@ namespace Controladora
                 if (instancia == null)
                     instancia = new ControladoraLaboratorio();
                 return instancia;
+            }
+        }
+
+        public ReadOnlyCollection<Laboratorio> RecuperarLaboratorios()
+        {
+            try
+            {
+                return context.Laboratorios.ToList().AsReadOnly();
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
