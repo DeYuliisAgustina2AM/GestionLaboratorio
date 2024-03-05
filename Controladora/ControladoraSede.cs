@@ -73,13 +73,15 @@ namespace Controladora
 
         public string ModificarSede(Sede sede)
         {
+            //Modifico la sede, busco por id y nombre, actualizo los campos y guardo los cambios en la base de datos
             try
             {
                 var listaSedes = context.Sedes.ToList().AsReadOnly();
-                var sedeEncontrada = listaSedes.FirstOrDefault(s => s.NombreSede.ToLower() == sede.NombreSede.ToLower());
-                if (sedeEncontrada != null) //si la sede existe, la modifico
+                var sedeEncontrada = listaSedes.FirstOrDefault(s => s.SedeId == sede.SedeId || s.NombreSede.ToLower() == sede.NombreSede.ToLower());
+                if (sedeEncontrada != null)
                 {
-                    context.Sedes.Update(sede);
+                    sedeEncontrada.NombreSede = sede.NombreSede;
+                    sedeEncontrada.DireccionSede = sede.DireccionSede;
                     int insertados = context.SaveChanges();
                     if (insertados > 0)
                     {
